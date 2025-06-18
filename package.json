@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration development",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:chrome_firefox": "ng build --configuration=chrome_firefox",
+    "build:safari": "ng build --configuration=safari"
   },
   "private": true,
   "dependencies": {

@@ -25,13 +25,11 @@
               "src/styles.scss",
               "src/fonts.css",
               "src/resolution.css"
-            ],
-            "scripts": [
-              "src/extension-function.js"
             ]
           },
           "configurations": {
-            "production": {
+            "chrome_firefox": {
+                "baseHref": "/src/",
                 "optimization": {
                     "styles": {
                         "inlineCritical": false
@@ -49,12 +47,67 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "scripts": [
+                "src/extension-function-chrome-firefox.js"
+              ]
+            },
+            "safari": {
+                "baseHref": "/src/",
+                "optimization": {
+                    "styles": {
+                        "inlineCritical": false
+                    }
+                },
+                "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "scripts": [
+                "src/extension-function-safari.js"
+              ]
+            },
+            "production": {
+              "baseHref": "/",
+              "optimization": {
+                "styles": {
+                  "inlineCritical": false
+                }
+              },
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "scripts": [
+                "src/extension-function-test.js"
+              ]
             },
             "development": {
+              "baseHref": "/",
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "scripts": [
+                "src/extension-function-test.js"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -98,5 +151,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
