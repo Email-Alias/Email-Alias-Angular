@@ -1,32 +1,36 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {
     MatList,
-    MatListItem,
-    MatListItemLine,
-    MatListItemMeta,
     MatListSubheaderCssMatStyler
 } from "@angular/material/list";
 import {Email} from './email'
-import {MatButton, MatIconButton} from "@angular/material/button";
-import {MatIcon} from "@angular/material/icon";
+import {MatButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
 import {Messages} from "./messages";
 import {ColorScheme, Config} from "./config";
-import {MatSnackBar} from "@angular/material/snack-bar";
 import {EmailListComponent} from "./email-list/email-list.component";
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [MatList, MatListItem, MatIconButton, MatListItemMeta, MatIcon, MatListItemLine, MatToolbar, MatButton, MatListSubheaderCssMatStyler, EmailListComponent],
+    imports: [MatList, MatToolbar, MatButton, MatListSubheaderCssMatStyler, EmailListComponent],
     encapsulation: ViewEncapsulation.None,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
     registered: Boolean = false
-    messages!: Messages
-    isPhone!: boolean
+    messages: Messages = {
+        copiedToClipboard: '',
+        ok: '',
+        register: '',
+        unregisteredTitle: '',
+        registeredTitle: '',
+        highlightedEmails: '',
+        remainingEmails: '',
+        licenses: '',
+    }
+    isPhone: boolean = false
     highlightedEmails: Email[] = []
     emails: Email[] = []
 
