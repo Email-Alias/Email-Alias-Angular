@@ -18,25 +18,11 @@ $dark-theme: mat.define-theme((
     ),
 ));
 
-.mat-mdc-snack-bar-container {
-    &.snackbar {
-        --mdc-snackbar-container-color: white;
-    }
-}
-
 html {
-    @include mat.core-theme($light-theme);
-    @include mat.button-theme($light-theme);
+    @include mat.all-component-themes($light-theme);
 
     @media screen and (prefers-color-scheme: dark) {
-        @include mat.core-color($dark-theme);
-        @include mat.button-color($dark-theme);
-
-        .mat-mdc-snack-bar-container {
-            &.snackbar {
-                --mdc-snackbar-container-color: #333;
-            }
-        }
+        @include mat.all-component-colors($dark-theme);
     }
 }
 
