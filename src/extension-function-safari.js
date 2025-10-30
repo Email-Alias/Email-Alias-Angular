@@ -7,9 +7,5 @@ async function getCurrentDomain() {
 }
 
 async function getConfig() {
-    return await new Promise(resolve => {
-        browser.runtime.sendNativeMessage("com.opdehipt.Email-Alias", "getAliases", function(response) {
-            resolve(response);
-        });
-    });
+    return await browser.runtime.sendMessage({ type: "alias" });
 }

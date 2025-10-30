@@ -5,5 +5,5 @@ async function getCurrentDomain() {
 }
 
 async function getConfig() {
-    return await chrome.runtime.sendNativeMessage('com.opdehipt.email_alias', {type: 'getAliases'});
+    return await chrome.runtime.sendMessage({ type: "alias" });
 }
