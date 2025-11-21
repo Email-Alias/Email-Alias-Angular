@@ -17,6 +17,6 @@ async function getConfig() {
         colorScheme: 0,
         isPhone: true,
         registered: true,
-        emails: '[{"id": 0, "address": "vAcd8HJOj6h9Hfq9n8F0@example.com", "privateComment": "Apple"}, {"id": 1, "address": "gQo5Nu.H7j774eh3mscM@example.com", "privateComment": "Google"}]',
+        emails: '[{"id": 0, "address": "vAcd8HJOj6h9Hfq9n8F0@example.com", "private_comment": "Apple"}, {"id": 1, "address": "gQo5Nu.H7j774eh3mscM@example.com", "private_comment": "Google"}]',
     };
 }

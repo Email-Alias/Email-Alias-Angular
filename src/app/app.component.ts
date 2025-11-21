@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
         if (currentDomain) {
             for (let email of emails) {
-                if (email.privateComment.replace(' ', '').toLowerCase().includes(currentDomain)) {
+                if (email.private_comment.replace(' ', '').toLowerCase().includes(currentDomain)) {
                     this.highlightedEmails.push(email)
                 } else {
                     this.emails.push(email)

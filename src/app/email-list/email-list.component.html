@@ -1,6 +1,6 @@
 @for (email of emails; track email) {
     <mat-list-item>
-        <span matListItemTitle>{{email.privateComment}}</span>
+        <span matListItemTitle>{{email.private_comment}}</span>
         <span matListItemLine>{{email.address}}</span>
         <button mat-icon-button (click)="copyEmailToClipboard(email)" matListItemMeta>
             <mat-icon>content_copy</mat-icon>
