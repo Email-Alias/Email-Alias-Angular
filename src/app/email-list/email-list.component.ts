@@ -2,9 +2,9 @@ import {Component, Input} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
 import {MatListItem, MatListItemLine, MatListItemMeta} from "@angular/material/list";
-import {Email} from "../email";
+import {Email} from "../email.js";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Messages} from "../messages";
+import {Messages} from "../messages.js";
 
 @Component({
   selector: 'app-email-list',

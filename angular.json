@@ -131,23 +131,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [],
-            "styles": [
-              "src/styles.scss",
-              "src/fonts.css",
-              "src/resolution.css"
-            ],
-            "scripts": [
-              "src/extension-function.js"
-            ]
-          }
+          "builder": "@angular/build:unit-test"
         }
       }
     }

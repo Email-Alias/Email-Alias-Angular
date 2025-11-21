@@ -3,12 +3,12 @@ import {
     MatList,
     MatListSubheaderCssMatStyler
 } from "@angular/material/list";
-import {Email} from './email'
+import {Email} from './email.js'
 import {MatButton} from "@angular/material/button";
 import {MatToolbar} from "@angular/material/toolbar";
-import {Messages} from "./messages";
-import {ColorScheme, Config} from "./config";
-import {EmailListComponent} from "./email-list/email-list.component";
+import {Messages} from "./messages.js";
+import {ColorScheme, Config} from "./config.js";
+import {EmailListComponent} from "./email-list/email-list.component.js";
 
 @Component({
     selector: 'app-root',

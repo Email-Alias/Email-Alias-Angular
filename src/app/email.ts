@@ -1,6 +1,6 @@
 export type Email = {
     id: number;
     address: string;
-    privateComment: string;
+    private_comment: string;
     goto: string;
 };

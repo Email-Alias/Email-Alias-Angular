@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmailListComponent } from './email-list.component';
+import { EmailListComponent } from './email-list.component.js';
 
 describe('EmailListComponent', () => {
   let component: EmailListComponent;
@@ -11,7 +11,7 @@ describe('EmailListComponent', () => {
       imports: [EmailListComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(EmailListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

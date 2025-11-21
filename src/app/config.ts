@@ -1,4 +1,4 @@
-import {Messages} from "./messages";
+import {Messages} from "./messages.js";
 
 export type Config = {
     registered: boolean,
