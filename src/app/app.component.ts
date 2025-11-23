@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {
     MatList,
     MatListSubheaderCssMatStyler
@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
     isPhone: boolean = false
     highlightedEmails: Email[] = []
     emails: Email[] = []
+
+    constructor(private cdr: ChangeDetectorRef) {}
 
     async ngOnInit() {
         const config = await getConfig();
@@ -70,6 +72,8 @@ export class AppComponent implements OnInit {
         if (!config.isPhone) {
             document.body.classList.add('large_screen');
         }
+
+        this.cdr.detectChanges();
     }
 
     openLicense() {
