@@ -31,7 +31,7 @@
     "jasmine-core": "^5.12.1",
     "vitest": "^4.0.10",
     "jsdom": "^27.2.0",
-    "generate-license-file": "^4.1.0",
+    "generate-license-file": "^4.1.1",
     "typescript": "^5.9.3"
   }
 }
