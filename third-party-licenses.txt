@@ -312,13 +312,11 @@ SOFTWARE.
 
 The following npm packages may be included in this product:
 
- - @angular/animations@21.0.0
- - @angular/common@21.0.0
- - @angular/compiler@21.0.0
- - @angular/core@21.0.0
- - @angular/forms@21.0.0
- - @angular/platform-browser@21.0.0
- - zone.js@0.15.1
+ - @angular/common@21.0.3
+ - @angular/compiler@21.0.3
+ - @angular/core@21.0.3
+ - @angular/forms@21.0.3
+ - @angular/platform-browser@21.0.3
 
 These packages each contain the following license:
 
@@ -346,12 +344,11 @@ THE SOFTWARE.
 
 -----------
 
-The following npm packages may be included in this product:
+The following npm package may be included in this product:
 
- - @angular/cdk@21.0.0
- - @angular/material@21.0.0
+ - @angular/material@21.0.2
 
-These packages each contain the following license:
+This package contains the following license:
 
 The MIT License
 
