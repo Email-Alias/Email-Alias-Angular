@@ -1,19 +1,20 @@
 <main>
+    @let messages = messagesSignal();
     <mat-toolbar color="primary">
-        <span>{{ registered ? messages.registeredTitle : messages.unregisteredTitle }}</span>
+        <span>{{ registered() ? messages.registeredTitle : messages.unregisteredTitle }}</span>
         <span class="spacer"></span>
         <button mat-button (click)="openLicense()">
             {{ messages.licenses }}
         </button>
     </mat-toolbar>
-    @if (registered) {
+    @if (registered()) {
         <mat-list>
-            @if (highlightedEmails.length != 0) {
+            @if (highlightedEmails().length != 0) {
                 <h3 matSubheader>{{ messages.highlightedEmails }}</h3>
-                <app-email-list [emails]="highlightedEmails" [messages]="messages" [isPhone]="isPhone" />
+                <app-email-list [emails]="highlightedEmails()" [messages]="messages" [isPhone]="isPhone()" />
                 <h3 matSubheader>{{ messages.remainingEmails }}</h3>
             }
-            <app-email-list [emails]="emails" [messages]="messages" [isPhone]="isPhone" />
+            <app-email-list [emails]="emails()" [messages]="messages" [isPhone]="isPhone()" />
         </mat-list>
     } @else {
         <div class="centered-outer">

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, signal, ViewEncapsulation} from '@angular/core';
 import {
     MatList,
     MatListSubheaderCssMatStyler
@@ -19,8 +19,8 @@ import {EmailListComponent} from "./email-list/email-list.component.js";
     styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-    registered: Boolean = false
-    messages: Messages = {
+    registered = signal(false)
+    messagesSignal = signal<Messages>({
         copiedToClipboard: '',
         ok: '',
         register: '',
@@ -29,32 +29,36 @@ export class AppComponent implements OnInit {
         highlightedEmails: '',
         remainingEmails: '',
         licenses: '',
-    }
-    isPhone: boolean = false
-    highlightedEmails: Email[] = []
-    emails: Email[] = []
-
-    constructor(private cdr: ChangeDetectorRef) {}
+    });
+    isPhone = signal(false);
+    highlightedEmails = signal<Email[]>([]);
+    emails = signal<Email[]>([])
 
     async ngOnInit() {
         const config = await getConfig();
         const currentDomain = await getCurrentDomain();
-        this.registered = config.registered;
-        this.messages = config.messages;
-        this.isPhone = config.isPhone;
+        this.registered.set(config.registered);
+        this.messagesSignal.set(config.messages);
+        this.isPhone.set(config.isPhone);
         const emails: Email[] = JSON.parse(config.emails);
 
         if (currentDomain) {
             for (let email of emails) {
                 if (email.private_comment.replace(' ', '').toLowerCase().includes(currentDomain)) {
-                    this.highlightedEmails.push(email)
+                    this.highlightedEmails.update(emails => {
+                        emails.push(email)
+                        return emails
+                    });
                 } else {
-                    this.emails.push(email)
+                    this.emails.update(emails => {
+                        emails.push(email)
+                        return emails
+                    });
                 }
             }
         }
         else {
-            this.emails = emails
+            this.emails.set(emails);
         }
 
         switch (config.colorScheme) {
@@ -72,8 +76,6 @@ export class AppComponent implements OnInit {
         if (!config.isPhone) {
             document.body.classList.add('large_screen');
         }
-
-        this.cdr.detectChanges();
     }
 
     openLicense() {
